@@ -75,6 +75,7 @@ function initMap() {
 
       fetchPromise
       .then(res => res.json())
+      .catch(error => console.error('Error:', 'No restaurants found'))
       .then(json => saveZomatoData(json));
       infoWindow.open(map);
       map.setCenter(pos);
@@ -90,6 +91,7 @@ function initMap() {
         const fetchPromise = fetchZomatoData(pos);
         fetchPromise
         .then(res => res.json())
+        .catch(error => console.error('Error:', 'No restaurants found'))
         .then(json => saveZomatoData(json));
         infoWindow.open(map);
         map.setCenter(pos);
